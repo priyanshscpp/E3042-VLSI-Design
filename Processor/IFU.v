@@ -7,6 +7,7 @@ on every positive clock edge.
 
 module IFU(
     input clock,reset,
+    input stall_pipeline_i, // New stall input
     output [31:0] Instruction_Code
 );
 reg [31:0] PC = 32'b0;  // 32-bit program counter is initialized to zero
@@ -17,9 +18,10 @@ reg [31:0] PC = 32'b0;  // 32-bit program counter is initialized to zero
     always @(posedge clock, posedge reset)
     begin
         if(reset == 1)  //If reset is one, clear the program counter
-        PC <= 0;
-        else
-        PC <= PC+4;   // Increment program counter on positive clock edge
+            PC <= 0;
+        else if (!stall_pipeline_i) // Only update PC if not stalled
+            PC <= PC+4;   // Increment program counter on positive clock edge
+        // else PC remains unchanged due to stall
     end
 
 endmodule

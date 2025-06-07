@@ -1,4 +1,4 @@
-# RISC-V SoC with Custom DSP Accelerators
+# ECE32 : RISC-V SoC with Custom DSP Accelerators
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Verilog Linting](https://github.com/your-username/riscv-dsp-soc/actions/workflows/lint.yml/badge.svg)](https://github.com/your-username/riscv-dsp-soc/actions/workflows/lint.yml)
